@@ -1,0 +1,393 @@
+<ui version="4.0" >
+ <class>metaArgsDlg</class>
+ <widget class="QDialog" name="metaArgsDlg" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>501</width>
+    <height>245</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>501</width>
+    <height>245</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>501</width>
+    <height>245</height>
+   </size>
+  </property>
+  <property name="font" >
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>Metalink Options - aria2fe</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../resources.qrc" >:/pixmaps/pixmaps/download_22x22.png</iconset>
+  </property>
+  <widget class="QLabel" name="txtLabel1" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>62</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Check Integrity:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="metaIntegrityCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>143</x>
+     <y>62</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>false</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>true</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="metaFollowCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>391</x>
+     <y>32</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>true</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>false</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>mem</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="txtLabel6" >
+   <property name="geometry" >
+    <rect>
+     <x>251</x>
+     <y>62</y>
+     <width>107</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Chunk Checksum:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="metaChecksumCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>391</x>
+     <y>62</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>true</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>false</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="txtLabel5" >
+   <property name="geometry" >
+    <rect>
+     <x>251</x>
+     <y>32</y>
+     <width>107</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Follow Metalink:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel7" >
+   <property name="geometry" >
+    <rect>
+     <x>251</x>
+     <y>92</y>
+     <width>107</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Metalink Servers:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="metaServersEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>391</x>
+     <y>92</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="inputMask" >
+    <string>99; </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel2" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>92</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Select File Index:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="metaIndexEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>143</x>
+     <y>92</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QFrame" name="upperFrame" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>483</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::HLine</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="lineWidth" >
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QFrame" name="lowerFrame" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>182</y>
+     <width>483</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::HLine</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="lineWidth" >
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="metaVersionEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>143</x>
+     <y>122</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel3" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>122</y>
+     <width>60</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Version:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="metaLanguageEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>75</x>
+     <y>152</y>
+     <width>169</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel4" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>152</y>
+     <width>60</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Language:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="metaLocationEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>323</x>
+     <y>152</y>
+     <width>169</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel9" >
+   <property name="geometry" >
+    <rect>
+     <x>251</x>
+     <y>152</y>
+     <width>53</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Location:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="metaOsEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>323</x>
+     <y>122</y>
+     <width>169</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel8" >
+   <property name="geometry" >
+    <rect>
+     <x>251</x>
+     <y>122</y>
+     <width>53</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>OS:</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="metaShowFilesCkBox" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>32</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Show Files</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="restoreBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>204</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip" >
+    <string>Restore Defaults</string>
+   </property>
+   <property name="icon" >
+    <iconset resource="../resources.qrc" >:/pixmaps/pixmaps/refresh.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="okBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>331</x>
+     <y>204</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>416</x>
+     <y>204</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Cancel</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>metaShowFilesCkBox</tabstop>
+  <tabstop>metaFollowCombo</tabstop>
+  <tabstop>metaIntegrityCombo</tabstop>
+  <tabstop>metaChecksumCombo</tabstop>
+  <tabstop>metaIndexEdit</tabstop>
+  <tabstop>metaServersEdit</tabstop>
+  <tabstop>metaVersionEdit</tabstop>
+  <tabstop>metaOsEdit</tabstop>
+  <tabstop>metaLanguageEdit</tabstop>
+  <tabstop>metaLocationEdit</tabstop>
+  <tabstop>okBtn</tabstop>
+  <tabstop>cancelBtn</tabstop>
+  <tabstop>restoreBtn</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../resources.qrc" />
+ </resources>
+ <connections/>
+</ui>

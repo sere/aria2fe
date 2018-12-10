@@ -1,0 +1,59 @@
+---------------
+    0.0.5
+---------------
+-inclusion of completed download type dialogs
+-added filename/filter to save-as dialog
+-added widgets/args for directIo/pieceLengthChange/persistence/pipelining
+-added "mem" option to metalink/torrent follow arg
+-added default of 1.0 to seedRatio
+-brought compatibility level up to aria2 0.12.0
+-changed "Refresh Defaults" to "Restore Defaults"
+-added Help dialog (work in process)
+-updated documentation
+---------------
+    0.0.4
+---------------
+-upgraded to Qt 4.3 (4.3.1)
+-application statically linked against Qt libs
+-brought arguments (options) compatibility level up to aria2 0.11.4 
+-HTTP User/Passwd relocated to HTTP(S) Options dialog
+-forms design for Metalink and BitTorrent dialogs
+-Metalink options (previous MainWindow) relocated to Metalink Options dialog
+-relocated launch/run btn to MenuBar/ToolBar->Tools->Run action
+-accel key change to Refresh Defaults (CTRL+R to CTRL+D)
+-cosmetic/functionality changes to MainWindow
+-cosmetic changes to About dialog
+-fixed bug in numerically masked edits
+-updated documentation
+---------------
+    0.0.3
+---------------
+-ported project to Qt 4 (2.2) from 3.3.8
+-rendered all classes/code/widgets Qt 4 compliant
+-forms design for FTP and HTTP(S) dialogs
+-cosmetic/functionality changes to MainWindow
+---------------
+    0.0.2
+---------------
+-changed Version numbering scheme (9.99 to 9.9.9)
+-changed Build numbering scheme (Julian date/time to Gregorian date)
+-reconfigured File Menu accel keys from Alt+ to Ctrl+
+-added tabbed About dialog
+-prevented launch without specifiying a URL
+-added Tools Menu to MenuBar/ToolBar
+-relocated Reload btn to MenuBar/ToolBar->Tools->Refresh Defaults action
+-removed Alt+ specifiers from Help Menu entries
+-cosmetic/functionality changes to MainWindow
+-added new icon set to application
+-inclusion of +Opts edit clear functionality/btn
+-download type determines enabled/disabled Option dialog btns
+-disabled FileSave action after RefreshDefaults action
+-URL file edit has focus after file type combo box change
+-clear indiv args on RefreshDefaults action (isolated bug)
+-set Logfile arg to default after RefreshDefaults action (bug)
+-resolved accel key conflict for Ctrl+X and Ctrl+V (bug)
+-updated documentation
+---------------
+    0.01
+---------------
+-initial release

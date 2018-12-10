@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/pixmaps" >
+        <file>pixmaps/book.png</file>
+        <file>pixmaps/clear.png</file>
+        <file>pixmaps/download_22x22.png</file>
+        <file>pixmaps/download_32x32.png</file>
+        <file>pixmaps/open.png</file>
+        <file>pixmaps/qt.png</file>
+        <file>pixmaps/refresh.png</file>
+        <file>pixmaps/run.png</file>
+        <file>pixmaps/save-as.png</file>
+        <file>pixmaps/save.png</file>
+    </qresource>
+</RCC>

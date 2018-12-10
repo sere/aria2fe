@@ -1,0 +1,56 @@
+INSTALL
+
+
+Upgrade:
+
+Out with the old, in with the new! Simply replace the existing aria2fe binary
+after unpacking the new tarball. Refer to the appropriate steps in First
+Install (below).
+
+
+First Install:
+
+The EASY Way:
+
+Make a copy of the tarball you downloaded (just in case!).
+
+Unpack the tarball to your home directory (~/). This will add a new directory
+named aria2fe-0.0.5 (~/aria2fe-0.0.5).
+
+Copy ~/aria2fe-0.0.5/bin/aria2fe (the binary) to ~/bin. Your home "bin"
+directory should already be in your path.
+
+Create a desktop icon (or add an entry to your desktop menu). aria2fe logo
+icons (22x22 and 32x32) are located in the ~/aria2fe-0.0.5/src/pixmaps
+directory. If you prefer, aria2fe can be launched from the command line.
+
+Insure that the aria2 and xterm binaries are installed in your path.
+
+That wasn't too hard now, was it?
+
+Note:	If aria2fe fails to launch, check permissions and your lib dependencies.
+
+
+The HARDER Way:
+
+The only difference here is that you will copy the aria2fe binary to a system
+bin directory - and that would be /usr/local/bin. I do not recommend this
+approach, however, it is your system. Be aprised that you do so at your own
+risk!
+
+Open a terminal, gain root and cp ~/aria2fe-0.0.5/bin/aria2fe /usr/local/bin.
+
+Everything else is the same as the "EASY Way".
+
+
+The HARDEST Way:
+
+"qmake", "make" and "make install" the project after modifying the .pro file
+accordingly.
+NOTE: A standalone binary requires a static Qt installation.
+
+
+If you encounter problems other than those mentioned above, take 2 aspirin,
+drink plenty of alcohol, get plenty of rest, and call me in the morning! 
+
+ 

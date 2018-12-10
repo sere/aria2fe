@@ -1,0 +1,321 @@
+<ui version="4.0" >
+ <class>ftpArgsDlg</class>
+ <widget class="QDialog" name="ftpArgsDlg" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>473</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>473</width>
+    <height>220</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>473</width>
+    <height>220</height>
+   </size>
+  </property>
+  <property name="font" >
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>FTP Options - aria2fe</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../resources.qrc" >:/pixmaps/pixmaps/download_22x22.png</iconset>
+  </property>
+  <widget class="QGroupBox" name="groupBox" >
+   <property name="geometry" >
+    <rect>
+     <x>221</x>
+     <y>63</y>
+     <width>241</width>
+     <height>85</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>FTP User</string>
+   </property>
+   <widget class="QLabel" name="txtLabel5" >
+    <property name="geometry" >
+     <rect>
+      <x>10</x>
+      <y>52</y>
+      <width>72</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text" >
+     <string>Passwd:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="txtLabel4" >
+    <property name="geometry" >
+     <rect>
+      <x>10</x>
+      <y>21</y>
+      <width>71</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text" >
+     <string>User ID:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ftpUserEdit" >
+    <property name="geometry" >
+     <rect>
+      <x>67</x>
+      <y>20</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text" >
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ftpPasswdEdit" >
+    <property name="geometry" >
+     <rect>
+      <x>67</x>
+      <y>51</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text" >
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="txtLabel2" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>95</y>
+     <width>83</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>FTP via HTTP:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel1" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>65</y>
+     <width>83</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>FTP Type:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel3" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>125</y>
+     <width>83</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Auto Rename:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>387</x>
+     <y>180</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="okBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>302</x>
+     <y>180</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="ftpContinueCkBox" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>32</y>
+     <width>154</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Continue Download</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="ftpPassiveCkBox" >
+   <property name="geometry" >
+    <rect>
+     <x>221</x>
+     <y>32</y>
+     <width>132</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>FTP Passive Mode</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="ftpTypeCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>98</x>
+     <y>65</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>binary</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>ascii</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="ftpViaHttpCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>98</x>
+     <y>95</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>tunnel</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>get</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="ftpRenameCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>98</x>
+     <y>125</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>true</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>false</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QFrame" name="upperFrame" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>454</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::HLine</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="lineWidth" >
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QFrame" name="lowerFrame" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>159</y>
+     <width>454</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::HLine</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="lineWidth" >
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="restoreBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>180</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip" >
+    <string>Restore Defaults</string>
+   </property>
+   <property name="icon" >
+    <iconset resource="../resources.qrc" >:/pixmaps/pixmaps/refresh.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>ftpContinueCkBox</tabstop>
+  <tabstop>ftpPassiveCkBox</tabstop>
+  <tabstop>ftpTypeCombo</tabstop>
+  <tabstop>ftpViaHttpCombo</tabstop>
+  <tabstop>ftpRenameCombo</tabstop>
+  <tabstop>ftpUserEdit</tabstop>
+  <tabstop>ftpPasswdEdit</tabstop>
+  <tabstop>okBtn</tabstop>
+  <tabstop>cancelBtn</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../resources.qrc" />
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,393 @@
+<ui version="4.0" >
+ <class>torrentArgsDlg</class>
+ <widget class="QDialog" name="torrentArgsDlg" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>499</width>
+    <height>245</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>499</width>
+    <height>245</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>499</width>
+    <height>245</height>
+   </size>
+  </property>
+  <property name="font" >
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>BitTorrent Options - aria2fe</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../resources.qrc" >:/pixmaps/pixmaps/download_22x22.png</iconset>
+  </property>
+  <widget class="QLabel" name="txtLabel1" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>62</y>
+     <width>118</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Check Integrity:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="torrentIntegrityCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>159</x>
+     <y>62</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>false</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>true</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="torrentFollowCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>389</x>
+     <y>32</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>true</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>false</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>mem</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="txtLabel6" >
+   <property name="geometry" >
+    <rect>
+     <x>267</x>
+     <y>62</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>File Mapping:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="torrentMappingCombo" >
+   <property name="geometry" >
+    <rect>
+     <x>389</x>
+     <y>62</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text" >
+     <string>true</string>
+    </property>
+   </item>
+   <item>
+    <property name="text" >
+     <string>false</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="txtLabel5" >
+   <property name="geometry" >
+    <rect>
+     <x>267</x>
+     <y>32</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Follow Torrent:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel7" >
+   <property name="geometry" >
+    <rect>
+     <x>267</x>
+     <y>92</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>TCP Port(s):</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="torrentPortsEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>389</x>
+     <y>92</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel2" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>92</y>
+     <width>118</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Select File Index:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="torrentIndexEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>159</x>
+     <y>92</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QFrame" name="upperFrame" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>481</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::HLine</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="lineWidth" >
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QFrame" name="lowerFrame" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>182</y>
+     <width>481</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::HLine</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="lineWidth" >
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="torrentMaxSpeedEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>159</x>
+     <y>122</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel3" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>122</y>
+     <width>118</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Max. Upload Speed:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="torrentSeedRatioEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>159</x>
+     <y>152</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel4" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>152</y>
+     <width>118</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Seed Ratio:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="torrentPeerEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>321</x>
+     <y>152</y>
+     <width>169</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel9" >
+   <property name="geometry" >
+    <rect>
+     <x>267</x>
+     <y>152</y>
+     <width>47</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Peer ID:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="torrentSeedTimeEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>389</x>
+     <y>122</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="inputMask" >
+    <string>0000; </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="txtLabel8" >
+   <property name="geometry" >
+    <rect>
+     <x>267</x>
+     <y>122</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Seed Time/min:</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="torrentShowFilesCkBox" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>32</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Show Files</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="restoreBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>204</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip" >
+    <string>Restore Defaults</string>
+   </property>
+   <property name="icon" >
+    <iconset resource="../resources.qrc" >:/pixmaps/pixmaps/refresh.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="okBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>330</x>
+     <y>204</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>415</x>
+     <y>204</y>
+     <width>75</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Cancel</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>torrentShowFilesCkBox</tabstop>
+  <tabstop>torrentFollowCombo</tabstop>
+  <tabstop>torrentIntegrityCombo</tabstop>
+  <tabstop>torrentMappingCombo</tabstop>
+  <tabstop>torrentIndexEdit</tabstop>
+  <tabstop>torrentPortsEdit</tabstop>
+  <tabstop>torrentMaxSpeedEdit</tabstop>
+  <tabstop>torrentSeedTimeEdit</tabstop>
+  <tabstop>torrentSeedRatioEdit</tabstop>
+  <tabstop>torrentPeerEdit</tabstop>
+  <tabstop>okBtn</tabstop>
+  <tabstop>cancelBtn</tabstop>
+  <tabstop>restoreBtn</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../resources.qrc" />
+ </resources>
+ <connections/>
+</ui>

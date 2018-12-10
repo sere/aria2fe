@@ -1,0 +1,29 @@
+BUGS
+
+
+Please submit all bugs via the Tracker->Bugs area located at:
+http://sourceforge.net/projects/aria2fe/.
+
+Bug reporting usage rules:
+
+Try to ascertain the root of the problem. That is, which program could be
+causing it. Some basics appy here; aria2fe constructs the command line syntax
+for aria2 and passes the arguments to xterm (there are arguments passed to
+xterm as well for program operation and control). xterm in turn passes the
+aria2 arguments to aria2 and executes the application. aria2 configures and
+controls all download operations. Given all of this, it is important to try
+and determine the cause. Attempt to reconstuct the problem, and if you can not
+do so, wait until it occurs again before reporting it. Get screenshots (if
+applicable) and document the problem thoroughly. Reporting in a manner such
+as "aria2fe doesn't work on my computer" leaves much to be imagined and
+desired. Be specific and provide as much detailed information as you can.
+Obviously, the more work you do up front, could end up resulting in a more
+timely resolution.
+
+Bugs determined to be caused by aria2 or xterm should be reported to the
+maintainers of those programs.
+
+Lastly, if you have done your utmost in trying to determine which of the little
+"guys" is causing the problem and you just can not do so, feel free to submit
+the bug per above.
+

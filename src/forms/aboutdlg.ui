@@ -1,0 +1,436 @@
+<ui version="4.0" >
+ <class>aboutDlg</class>
+ <widget class="QDialog" name="aboutDlg" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>438</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>438</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>438</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="font" >
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>About aria2fe</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../resources.qrc" >:/pixmaps/pixmaps/download_22x22.png</iconset>
+  </property>
+  <property name="sizeGripEnabled" >
+   <bool>false</bool>
+  </property>
+  <widget class="QPushButton" name="closeBtn" >
+   <property name="geometry" >
+    <rect>
+     <x>11</x>
+     <y>283</y>
+     <width>416</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Close</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+   <property name="autoDefault" >
+    <bool>true</bool>
+   </property>
+   <property name="default" >
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>416</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <property name="currentIndex" >
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tabAbout" >
+    <attribute name="title" >
+     <string>About</string>
+    </attribute>
+    <widget class="QLabel" name="txtLabel1_4" >
+     <property name="geometry" >
+      <rect>
+       <x>107</x>
+       <y>138</y>
+       <width>237</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string>Copyright (C) 2007, Mike Wells</string>
+     </property>
+     <property name="wordWrap" >
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="txtLabel1_3" >
+     <property name="geometry" >
+      <rect>
+       <x>107</x>
+       <y>98</y>
+       <width>237</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:11pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">a graphical "FrontEnd" (GUI) for aria2&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+     </property>
+     <property name="wordWrap" >
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="txtLabel1_2" >
+     <property name="geometry" >
+      <rect>
+       <x>107</x>
+       <y>78</y>
+       <width>237</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="wordWrap" >
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pixLabel1_1" >
+     <property name="geometry" >
+      <rect>
+       <x>71</x>
+       <y>68</y>
+       <width>32</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="pixmap" >
+      <pixmap resource="../resources.qrc" >:/pixmaps/pixmaps/download_32x32.png</pixmap>
+     </property>
+     <property name="wordWrap" >
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabAuthor" >
+    <property name="toolTip" >
+     <string/>
+    </property>
+    <attribute name="title" >
+     <string>Author</string>
+    </attribute>
+    <widget class="QFrame" name="frame" >
+     <property name="geometry" >
+      <rect>
+       <x>16</x>
+       <y>17</y>
+       <width>381</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="txtLabel2_1" >
+      <property name="geometry" >
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>90</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Mike Wells</string>
+      </property>
+      <property name="wordWrap" >
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txtLabel2_2" >
+      <property name="geometry" >
+       <rect>
+        <x>38</x>
+        <y>40</y>
+        <width>200</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Web: &lt;tt>http://aria2fe.com/&lt;/tt></string>
+      </property>
+      <property name="wordWrap" >
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txtLabel2_3" >
+      <property name="geometry" >
+       <rect>
+        <x>38</x>
+        <y>60</y>
+        <width>190</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Email: &lt;tt>aria2fe@cox.net&lt;/tt></string>
+      </property>
+      <property name="wordWrap" >
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txtLabel2_5" >
+      <property name="geometry" >
+       <rect>
+        <x>20</x>
+        <y>120</y>
+        <width>310</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Please report bugs to: &lt;tt>aria2fe@cox.net&lt;/tt></string>
+      </property>
+      <property name="wordWrap" >
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txtLabel2_4" >
+      <property name="geometry" >
+       <rect>
+        <x>38</x>
+        <y>80</y>
+        <width>200</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal; text-decoration:none;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Developer/Maintainer&lt;/p>&lt;/body>&lt;/html></string>
+      </property>
+      <property name="wordWrap" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabThanksTo" >
+    <attribute name="title" >
+     <string>Thanks To</string>
+    </attribute>
+    <widget class="QFrame" name="frame_2" >
+     <property name="geometry" >
+      <rect>
+       <x>16</x>
+       <y>17</y>
+       <width>381</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="txtLabel3_1" >
+      <property name="geometry" >
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>160</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>"Ant" Bryan</string>
+      </property>
+      <property name="wordWrap" >
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txtLabel3_2" >
+      <property name="geometry" >
+       <rect>
+        <x>38</x>
+        <y>40</y>
+        <width>270</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Web: &lt;tt>http://metalinker.org/&lt;/tt></string>
+      </property>
+      <property name="wordWrap" >
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txtLabel3_3" >
+      <property name="geometry" >
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>160</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="toolTip" >
+       <string/>
+      </property>
+      <property name="text" >
+       <string>Tatsuhiro Tsujikawa</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txtLabel3_4" >
+      <property name="geometry" >
+       <rect>
+        <x>38</x>
+        <y>100</y>
+        <width>340</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Web: &lt;tt>http://sourceforge.net/projects/aria2/&lt;/tt></string>
+      </property>
+      <property name="textFormat" >
+       <enum>Qt::AutoText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label" >
+      <property name="geometry" >
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>160</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Tarek Saidi</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2" >
+      <property name="geometry" >
+       <rect>
+        <x>38</x>
+        <y>160</y>
+        <width>271</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Web: &lt;tt>http://www.keepassx.org/&lt;/tt></string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabLicense" >
+    <attribute name="title" >
+     <string>License</string>
+    </attribute>
+    <widget class="QTextEdit" name="txtEdit" >
+     <property name="geometry" >
+      <rect>
+       <x>16</x>
+       <y>17</y>
+       <width>381</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="autoFormatting" >
+      <set>QTextEdit::AutoAll</set>
+     </property>
+     <property name="readOnly" >
+      <bool>true</bool>
+     </property>
+     <property name="html" >
+      <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:11pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">GNU GPL 3.0 Abstract&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">This program is free software; you can redistribute it and/or&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">modify it under the terms of the GNU General Public License&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">as published by the Free Software Foundation; either version&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">3 of the License, or any later version.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">This program is distributed in the hope that it will be useful,&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">but WITHOUT ANY WARRANTY; without even the implied&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">PURPOSE. See the GNU General Public License for more&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">details.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">You should have received a copy of the GNU General Public&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">License along with this program.  If not, see&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">http://www.gnu.org/licenses/. &lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;">&lt;/p>&lt;/body>&lt;/html></string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <tabstops>
+  <tabstop>closeBtn</tabstop>
+  <tabstop>tabWidget</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../resources.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>closeBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>aboutDlg</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

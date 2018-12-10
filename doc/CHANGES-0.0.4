@@ -1,0 +1,43 @@
+Version 0.0.4 includes some major changes and improvements;
+
+Along with this version comes a move to SourceForge.net. Please take advantage
+of the features offered there including the new Forums and Bug Reporting and
+Tracking. Visit the project area at http://sourceforge.net/projects/aria2fe/.
+
+1.	The application is now statically linked against the Qt libs so a local
+		machine install of Qt/Qt libs is no longer required.
+
+2.	The project has been ported to Qt 4 (from Qt 3.3.8) and all of the
+		code, classes and widgets are now Qt 4 compliant.
+
+3.	The HTTP(S)/FTP/Metalink/BitTorrent dialogs remain work in process for
+		this release. Use the Additional Opts (+ Opts) edit to specify any options
+		your download	requires that are not shown on the MainWindow. Every effort
+		will be made to include the functioning dialogs in 0.0.5.
+
+4.  Considerable modification has been done to the MainWindow. If you have been
+		using earlier versions please take some time to familiarize yourself with
+		the changes.
+
+5.  The application is now argument compatible with aria2 0.11.4.
+		aria2 0.11.5 is a maintenance release and has no impact on argument specs.
+
+6.  Every attempt was made to maintain backward compatibility with the
+		*.conf files.  However, due to the complexion of changes, some modifcation
+		to the .conf file format was unavoidable. Update your existing *.conf
+		files as follows:
+
+		6.1		Execute aria2fe.
+		6.2.	Load the .conf file to be updated.
+		6.3.	Make any necessary default changes to the following options;
+					"File Allocation" - old Method default was "none", new is "prealloc".
+					"Size < Limit" - replaced "HTTP Passwd". Update to "5M".
+					"Concurrent Downloads" - replaced "HTTP User". Update to "5".
+					"Force Sequential" - replaced "Check Integrity". Update to "false".
+					"Parameterized" - replaced "Chunk Checksum". Update to "false".
+		6.4.	Save the file.
+		6.5.	Quit.
+
+7.	The "Run/Launch" function has been relocated to the MenuBar/ToolBar->Tools.
+
+8.	Refer to the CHANGELOG doc for a complete list of changes for 0.0.4. 
