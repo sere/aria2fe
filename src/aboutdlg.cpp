@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,35 +18,29 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include <aboutdlg.h>
 
-
-aboutDlg::aboutDlg()  //constructor
+aboutDlg::aboutDlg() // constructor
 {
-	setupUi(this);
-	init();
+    setupUi(this);
+    init();
 }
 
-
-aboutDlg::~aboutDlg()  //destructor
+aboutDlg::~aboutDlg() // destructor
 {
-	//no need to delete child widgets, Qt does it all for us
+    // no need to delete child widgets, Qt does it all for us
 }
 
-
-void aboutDlg::languageChange()  //future use
+void aboutDlg::languageChange() // future use
 {
-	retranslateUi(this);
+    retranslateUi(this);
 }
 
-
-void aboutDlg::init()
-{
-	txtLabel1_2->setText("<b>aria2fe 0.0.5 Build 20071208</b>");
-}	
+void aboutDlg::init() {
+    txtLabel1_2->setText("<b>aria2fe 0.0.5 Build 20071208</b>");
+}

@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,11 +18,10 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
-
 
 #ifndef TORRENTARGSDLG_H
 #define TORRENTARGSDLG_H
@@ -53,40 +52,37 @@ extern QString torrentSeedTime;
 extern QString torrentSeedRatio;
 extern QString torrentPeer;
 
-class torrentArgsDlg : public QDialog, public Ui::torrentArgsDlg
-{
-	Q_OBJECT
+class torrentArgsDlg : public QDialog, public Ui::torrentArgsDlg {
+    Q_OBJECT
 
 public:
-
-	torrentArgsDlg();
-	~torrentArgsDlg();
+    torrentArgsDlg();
+    ~torrentArgsDlg();
 
 public slots:
 
-	void acceptArgs();
-	void rejectArgs();
-	void acquireTorrentShowFiles();
-	void acquireTorrentFollow();
-	void acquireTorrentIntegrity();
-	void acquireTorrentMapping();
-	void acquireTorrentIndex();
-	void acquireTorrentPorts();
-	void acquireTorrentMaxSpeed();
-	void acquireTorrentSeedTime();
-	void acquireTorrentSeedRatio();
-	void acquireTorrentPeer();
-	void acquireAll();
-	void restoreDefaults();
+    void acceptArgs();
+    void rejectArgs();
+    void acquireTorrentShowFiles();
+    void acquireTorrentFollow();
+    void acquireTorrentIntegrity();
+    void acquireTorrentMapping();
+    void acquireTorrentIndex();
+    void acquireTorrentPorts();
+    void acquireTorrentMaxSpeed();
+    void acquireTorrentSeedTime();
+    void acquireTorrentSeedRatio();
+    void acquireTorrentPeer();
+    void acquireAll();
+    void restoreDefaults();
 
 protected slots:
 
-	virtual void languageChange();
+    virtual void languageChange();
 
 private:
-
-	void setupConnections();
-	void init();
+    void setupConnections();
+    void init();
 };
 
 #endif // TORRENTARGSDLG_H

@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,11 +18,10 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
-
 
 #include <httpargsdlg.h>
 
@@ -52,246 +51,214 @@ QString httpPasswd;
 QString httpProxyUser;
 QString httpProxyPasswd;
 
-httpArgsDlg::httpArgsDlg()  //constructor
+httpArgsDlg::httpArgsDlg() // constructor
 {
-	setupUi(this);
-	setupConnections();
-	init();
+    setupUi(this);
+    setupConnections();
+    init();
 }
 
-
-httpArgsDlg::~httpArgsDlg()  //destructor
+httpArgsDlg::~httpArgsDlg() // destructor
 {
-	//no need to delete child widgets, Qt does it all for us
+    // no need to delete child widgets, Qt does it all for us
 }
 
-
-void httpArgsDlg::languageChange()  //future use
+void httpArgsDlg::languageChange() // future use
 {
-	retranslateUi(this);
+    retranslateUi(this);
 }
 
-
-void httpArgsDlg::acceptArgs()  //ok btn
+void httpArgsDlg::acceptArgs() // ok btn
 {
-	acquireAll();
+    acquireAll();
 
-	httpContinue=httpContinueCkBox->isChecked();
-	httpPersistence=httpPersistenceCombo->currentIndex();
-	httpRename=httpRenameCombo->currentIndex();
-	httpScheme=httpSchemeCombo->currentIndex();
-	httpPipelining=httpPipeliningCombo->currentIndex();
-	httpMethod=httpMethodCombo->currentIndex();
-	httpAgent=httpAgentEdit->text();
-	httpProxyServer=httpProxyServerEdit->text();
-	httpUser=httpUserEdit->text();
-	httpPasswd=httpPasswdEdit->text();
-	httpProxyUser=httpProxyUserEdit->text();
-	httpProxyPasswd=httpProxyPasswdEdit->text();
+    httpContinue = httpContinueCkBox->isChecked();
+    httpPersistence = httpPersistenceCombo->currentIndex();
+    httpRename = httpRenameCombo->currentIndex();
+    httpScheme = httpSchemeCombo->currentIndex();
+    httpPipelining = httpPipeliningCombo->currentIndex();
+    httpMethod = httpMethodCombo->currentIndex();
+    httpAgent = httpAgentEdit->text();
+    httpProxyServer = httpProxyServerEdit->text();
+    httpUser = httpUserEdit->text();
+    httpPasswd = httpPasswdEdit->text();
+    httpProxyUser = httpProxyUserEdit->text();
+    httpProxyPasswd = httpProxyPasswdEdit->text();
 
-	close();
+    close();
 }
 
-
-void httpArgsDlg::rejectArgs()  //cancel btn
+void httpArgsDlg::rejectArgs() // cancel btn
 {
-	close();
+    close();
 }
 
+void httpArgsDlg::acquireHttpContinue() {
+    argHttpContinue = "";
 
-void httpArgsDlg::acquireHttpContinue()
-{
-	argHttpContinue="";
-
-	if (httpContinueCkBox->isChecked())
-		argHttpContinue="--continue";
+    if (httpContinueCkBox->isChecked())
+        argHttpContinue = "--continue";
 }
 
+void httpArgsDlg::acquireHttpPersistence() {
+    argHttpPersistence = "";
 
-void httpArgsDlg::acquireHttpPersistence()
-{
-	argHttpPersistence="";
-
-	if (httpPersistenceCombo->currentText()=="true")
-		argHttpPersistence="--enable-http-keep-alive=true";
+    if (httpPersistenceCombo->currentText() == "true")
+        argHttpPersistence = "--enable-http-keep-alive=true";
 }
 
+void httpArgsDlg::acquireHttpRename() {
+    argHttpRename = "";
 
-void httpArgsDlg::acquireHttpRename()
-{
-	argHttpRename="";
-
-	if (httpRenameCombo->currentText()=="false")
-		argHttpRename="--auto-file-renaming=false";
+    if (httpRenameCombo->currentText() == "false")
+        argHttpRename = "--auto-file-renaming=false";
 }
 
+void httpArgsDlg::acquireHttpScheme() {
+    argHttpScheme = "";
 
-void httpArgsDlg::acquireHttpScheme()
-{
-	argHttpScheme="";
-
-	/*if (httpSchemeCombo->currentText()=="basic")  //future use
-		argHttpScheme="--http-auth-scheme=basic";*/
+    /*if (httpSchemeCombo->currentText()=="basic")  //future use
+        argHttpScheme="--http-auth-scheme=basic";*/
 }
 
+void httpArgsDlg::acquireHttpPipelining() {
+    argHttpPipelining = "";
 
-void httpArgsDlg::acquireHttpPipelining()
-{
-	argHttpPipelining="";
-
-	if (httpPipeliningCombo->currentText()=="true")
-		argHttpPipelining="--enable-http-pipelining=true";
+    if (httpPipeliningCombo->currentText() == "true")
+        argHttpPipelining = "--enable-http-pipelining=true";
 }
 
+void httpArgsDlg::acquireHttpMethod() {
+    argHttpMethod = "";
 
-void httpArgsDlg::acquireHttpMethod()
-{
-	argHttpMethod="";
-
-	if (httpMethodCombo->currentText()=="get")
-		argHttpMethod="--http-proxy-method=get";
+    if (httpMethodCombo->currentText() == "get")
+        argHttpMethod = "--http-proxy-method=get";
 }
 
+void httpArgsDlg::acquireHttpAgent() {
+    argHttpAgent = "";
 
-void httpArgsDlg::acquireHttpAgent()
-{
-	argHttpAgent="";
-
-	if (httpAgentEdit->text()!="")
-		argHttpAgent="--user-agent="+httpAgentEdit->text();
+    if (httpAgentEdit->text() != "")
+        argHttpAgent = "--user-agent=" + httpAgentEdit->text();
 }
 
+void httpArgsDlg::acquireHttpProxyServer() {
+    argHttpProxyServer = "";
 
-void httpArgsDlg::acquireHttpProxyServer()
-{
-	argHttpProxyServer="";
-
-	if (httpProxyServerEdit->text()!="")
-		argHttpProxyServer="--http-proxy="+httpProxyServerEdit->text();
+    if (httpProxyServerEdit->text() != "")
+        argHttpProxyServer = "--http-proxy=" + httpProxyServerEdit->text();
 }
 
+void httpArgsDlg::acquireHttpUser() {
+    argHttpUser = "";
 
-void httpArgsDlg::acquireHttpUser()
-{
-	argHttpUser="";
-
-	if (httpUserEdit->text()!="")
-		argHttpUser="--http-user="+httpUserEdit->text();
+    if (httpUserEdit->text() != "")
+        argHttpUser = "--http-user=" + httpUserEdit->text();
 }
 
+void httpArgsDlg::acquireHttpPasswd() {
+    argHttpPasswd = "";
 
-void httpArgsDlg::acquireHttpPasswd()
-{
-	argHttpPasswd="";
-
-	if (httpPasswdEdit->text()!="")
-		argHttpPasswd="--http-passwd="+httpPasswdEdit->text();
+    if (httpPasswdEdit->text() != "")
+        argHttpPasswd = "--http-passwd=" + httpPasswdEdit->text();
 }
 
+void httpArgsDlg::acquireHttpProxyUser() {
+    argHttpProxyUser = "";
 
-void httpArgsDlg::acquireHttpProxyUser()
-{
-	argHttpProxyUser="";
-
-	if (httpProxyUserEdit->text()!="")
-		argHttpProxyUser="--http-proxy-user="+httpProxyUserEdit->text();
+    if (httpProxyUserEdit->text() != "")
+        argHttpProxyUser = "--http-proxy-user=" + httpProxyUserEdit->text();
 }
 
+void httpArgsDlg::acquireHttpProxyPasswd() {
+    argHttpProxyPasswd = "";
 
-void httpArgsDlg::acquireHttpProxyPasswd()
-{
-	argHttpProxyPasswd="";
-
-	if (httpProxyPasswdEdit->text()!="")
-		argHttpProxyPasswd="--http-proxy-passwd="+httpProxyPasswdEdit->text();
+    if (httpProxyPasswdEdit->text() != "")
+        argHttpProxyPasswd =
+                "--http-proxy-passwd=" + httpProxyPasswdEdit->text();
 }
 
-
-void httpArgsDlg::acquireAll()
-{
-	acquireHttpContinue();
-	acquireHttpPersistence();
-	acquireHttpRename();
-	acquireHttpScheme();
-	acquireHttpPipelining();
-	acquireHttpMethod();
-	acquireHttpAgent();
-	acquireHttpProxyServer();
-	acquireHttpUser();
-	acquireHttpPasswd();
-	acquireHttpProxyUser();
-	acquireHttpProxyPasswd();
+void httpArgsDlg::acquireAll() {
+    acquireHttpContinue();
+    acquireHttpPersistence();
+    acquireHttpRename();
+    acquireHttpScheme();
+    acquireHttpPipelining();
+    acquireHttpMethod();
+    acquireHttpAgent();
+    acquireHttpProxyServer();
+    acquireHttpUser();
+    acquireHttpPasswd();
+    acquireHttpProxyUser();
+    acquireHttpProxyPasswd();
 }
 
-
-void httpArgsDlg::restoreDefaults()  //restore btn
+void httpArgsDlg::restoreDefaults() // restore btn
 {
-	httpContinueCkBox->setChecked(false);
-	httpPersistenceCombo->setCurrentIndex(0);
-	httpRenameCombo->setCurrentIndex(0);
-	httpSchemeCombo->setCurrentIndex(0);
-	httpPipeliningCombo->setCurrentIndex(0);
-	httpMethodCombo->setCurrentIndex(0);
-	httpAgentEdit->setText("");
-	httpProxyServerEdit->setText("");
-	httpUserEdit->setText("");
-	httpPasswdEdit->setText("");
-	httpProxyUserEdit->setText("");
-	httpProxyPasswdEdit->setText("");
+    httpContinueCkBox->setChecked(false);
+    httpPersistenceCombo->setCurrentIndex(0);
+    httpRenameCombo->setCurrentIndex(0);
+    httpSchemeCombo->setCurrentIndex(0);
+    httpPipeliningCombo->setCurrentIndex(0);
+    httpMethodCombo->setCurrentIndex(0);
+    httpAgentEdit->setText("");
+    httpProxyServerEdit->setText("");
+    httpUserEdit->setText("");
+    httpPasswdEdit->setText("");
+    httpProxyUserEdit->setText("");
+    httpProxyPasswdEdit->setText("");
 
-	argHttpContinue="";
-	argHttpPersistence="";
-	argHttpRename="";
-	argHttpScheme="";
-	argHttpPipelining="";
-	argHttpMethod="";
-	argHttpAgent="";
-	argHttpProxyServer="";
-	argHttpUser="";
-	argHttpPasswd="";
-	argHttpProxyUser="";
-	argHttpProxyPasswd="";
+    argHttpContinue = "";
+    argHttpPersistence = "";
+    argHttpRename = "";
+    argHttpScheme = "";
+    argHttpPipelining = "";
+    argHttpMethod = "";
+    argHttpAgent = "";
+    argHttpProxyServer = "";
+    argHttpUser = "";
+    argHttpPasswd = "";
+    argHttpProxyUser = "";
+    argHttpProxyPasswd = "";
 
-	httpContinue=false;
-	httpPersistence=0;
-	httpRename=0;
-	httpScheme=0;
-	httpPipelining=0;
-	httpMethod=0;
-	httpAgent="";
-	httpProxyServer="";
-	httpUser="";
-	httpPasswd="";
-	httpProxyUser="";
-	httpProxyPasswd="";
+    httpContinue = false;
+    httpPersistence = 0;
+    httpRename = 0;
+    httpScheme = 0;
+    httpPipelining = 0;
+    httpMethod = 0;
+    httpAgent = "";
+    httpProxyServer = "";
+    httpUser = "";
+    httpPasswd = "";
+    httpProxyUser = "";
+    httpProxyPasswd = "";
 
-	QMessageBox::warning
-		(this,"Warning - aria2fe","The HTTP(S) argument list has been cleared!");
+    QMessageBox::warning(this, "Warning - aria2fe",
+                         "The HTTP(S) argument list has been cleared!");
 }
 
-
-void httpArgsDlg::setupConnections()  //called by constructor
+void httpArgsDlg::setupConnections() // called by constructor
 {
-	connect(restoreBtn,SIGNAL(released()),this,SLOT(restoreDefaults()));
-	connect(okBtn,SIGNAL(released()),this,SLOT(acceptArgs()));
-	connect(cancelBtn,SIGNAL(released()),this,SLOT(rejectArgs()));
+    connect(restoreBtn, SIGNAL(released()), this, SLOT(restoreDefaults()));
+    connect(okBtn, SIGNAL(released()), this, SLOT(acceptArgs()));
+    connect(cancelBtn, SIGNAL(released()), this, SLOT(rejectArgs()));
 }
 
-
-void httpArgsDlg::init()  //called by constructor
+void httpArgsDlg::init() // called by constructor
 {
-	httpContinueCkBox->setChecked(httpContinue);
-	httpPersistenceCombo->setCurrentIndex(httpPersistence);
-	httpRenameCombo->setCurrentIndex(httpRename);
-	httpSchemeCombo->setCurrentIndex(httpScheme);
-	httpPipeliningCombo->setCurrentIndex(httpPipelining);
-	httpMethodCombo->setCurrentIndex(httpMethod);
-	httpAgentEdit->setText(httpAgent);
-	httpProxyServerEdit->setText(httpProxyServer);
-	httpUserEdit->setText(httpUser);
-	httpPasswdEdit->setText(httpPasswd);
-	httpProxyUserEdit->setText(httpProxyUser);
-	httpProxyPasswdEdit->setText(httpProxyPasswd);
+    httpContinueCkBox->setChecked(httpContinue);
+    httpPersistenceCombo->setCurrentIndex(httpPersistence);
+    httpRenameCombo->setCurrentIndex(httpRename);
+    httpSchemeCombo->setCurrentIndex(httpScheme);
+    httpPipeliningCombo->setCurrentIndex(httpPipelining);
+    httpMethodCombo->setCurrentIndex(httpMethod);
+    httpAgentEdit->setText(httpAgent);
+    httpProxyServerEdit->setText(httpProxyServer);
+    httpUserEdit->setText(httpUser);
+    httpPasswdEdit->setText(httpPasswd);
+    httpProxyUserEdit->setText(httpProxyUser);
+    httpProxyPasswdEdit->setText(httpProxyPasswd);
 
-	acquireAll();
+    acquireAll();
 }

@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,33 +18,29 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
-
 
 #ifndef HELPDLG_H
 #define HELPDLG_H
 
 #include <ui_helpdlg.h>
 
-class helpDlg : public QDialog, public Ui::helpDlg
-{
-	Q_OBJECT
+class helpDlg : public QDialog, public Ui::helpDlg {
+    Q_OBJECT
 
 public:
-
-	helpDlg();
-	~helpDlg();
+    helpDlg();
+    ~helpDlg();
 
 protected slots:
 
-	virtual void languageChange();
+    virtual void languageChange();
 
 private:
-
-	void init();
+    void init();
 };
 
 #endif // HELPDLG_H

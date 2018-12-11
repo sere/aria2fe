@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,11 +18,10 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
-
 
 #include <ftpargsdlg.h>
 
@@ -42,170 +41,148 @@ int ftpRename;
 QString ftpUser;
 QString ftpPasswd;
 
-ftpArgsDlg::ftpArgsDlg()  //constructor
+ftpArgsDlg::ftpArgsDlg() // constructor
 {
-	setupUi(this);
-	setupConnections();
-	init();
+    setupUi(this);
+    setupConnections();
+    init();
 }
 
-
-ftpArgsDlg::~ftpArgsDlg()  //destructor
+ftpArgsDlg::~ftpArgsDlg() // destructor
 {
-	//no need to delete child widgets, Qt does it all for us
+    // no need to delete child widgets, Qt does it all for us
 }
 
-
-void ftpArgsDlg::languageChange()  //future use
+void ftpArgsDlg::languageChange() // future use
 {
-	retranslateUi(this);
+    retranslateUi(this);
 }
 
-
-void ftpArgsDlg::acceptArgs()  //ok btn
+void ftpArgsDlg::acceptArgs() // ok btn
 {
-	acquireAll();
+    acquireAll();
 
-	ftpContinue=ftpContinueCkBox->isChecked();
-	ftpPassive=ftpPassiveCkBox->isChecked();
-	ftpType=ftpTypeCombo->currentIndex();
-	ftpViaHttp=ftpViaHttpCombo->currentIndex();
-	ftpRename=ftpRenameCombo->currentIndex();
-	ftpUser=ftpUserEdit->text();
-	ftpPasswd=ftpPasswdEdit->text();
+    ftpContinue = ftpContinueCkBox->isChecked();
+    ftpPassive = ftpPassiveCkBox->isChecked();
+    ftpType = ftpTypeCombo->currentIndex();
+    ftpViaHttp = ftpViaHttpCombo->currentIndex();
+    ftpRename = ftpRenameCombo->currentIndex();
+    ftpUser = ftpUserEdit->text();
+    ftpPasswd = ftpPasswdEdit->text();
 
-	close();
+    close();
 }
 
-
-void ftpArgsDlg::rejectArgs()  //cancel btn
+void ftpArgsDlg::rejectArgs() // cancel btn
 {
-	close();
+    close();
 }
 
+void ftpArgsDlg::acquireFtpContinue() {
+    argFtpContinue = "";
 
-void ftpArgsDlg::acquireFtpContinue()
-{
-	argFtpContinue="";
-
-	if (ftpContinueCkBox->isChecked())
-		argFtpContinue="--continue";
+    if (ftpContinueCkBox->isChecked())
+        argFtpContinue = "--continue";
 }
 
+void ftpArgsDlg::acquireFtpPassive() {
+    argFtpPassive = "";
 
-void ftpArgsDlg::acquireFtpPassive()
-{
-	argFtpPassive="";
-
-	if (ftpPassiveCkBox->isChecked())
-		argFtpPassive="--ftp-pasv";
+    if (ftpPassiveCkBox->isChecked())
+        argFtpPassive = "--ftp-pasv";
 }
 
+void ftpArgsDlg::acquireFtpType() {
+    argFtpType = "";
 
-void ftpArgsDlg::acquireFtpType()
-{
-	argFtpType="";
-
-	if (ftpTypeCombo->currentText()=="ascii")
-		argFtpType="--ftp-type=ascii";
+    if (ftpTypeCombo->currentText() == "ascii")
+        argFtpType = "--ftp-type=ascii";
 }
 
+void ftpArgsDlg::acquireFtpViaHttp() {
+    argFtpViaHttp = "";
 
-void ftpArgsDlg::acquireFtpViaHttp()
-{
-	argFtpViaHttp="";
-
-	if (ftpViaHttpCombo->currentText()=="get")
-		argFtpViaHttp="--ftp-via-http-proxy=get";
+    if (ftpViaHttpCombo->currentText() == "get")
+        argFtpViaHttp = "--ftp-via-http-proxy=get";
 }
 
+void ftpArgsDlg::acquireFtpRename() {
+    argFtpRename = "";
 
-void ftpArgsDlg::acquireFtpRename()
-{
-	argFtpRename="";
-
-	if (ftpRenameCombo->currentText()=="false")
-		argFtpRename="--auto-file-renaming=false";
+    if (ftpRenameCombo->currentText() == "false")
+        argFtpRename = "--auto-file-renaming=false";
 }
 
+void ftpArgsDlg::acquireFtpUser() {
+    argFtpUser = "";
 
-void ftpArgsDlg::acquireFtpUser()
-{
-	argFtpUser="";
-
-	if (ftpUserEdit->text()!="anonymous")
-		argFtpUser="--ftp-user="+ftpUserEdit->text();
+    if (ftpUserEdit->text() != "anonymous")
+        argFtpUser = "--ftp-user=" + ftpUserEdit->text();
 }
 
+void ftpArgsDlg::acquireFtpPasswd() {
+    argFtpPasswd = "";
 
-void ftpArgsDlg::acquireFtpPasswd()
-{
-	argFtpPasswd="";
-
-	if (ftpPasswdEdit->text()!="ARIA2USER@")
-		argFtpPasswd="--ftp-passwd="+ftpPasswdEdit->text();
+    if (ftpPasswdEdit->text() != "ARIA2USER@")
+        argFtpPasswd = "--ftp-passwd=" + ftpPasswdEdit->text();
 }
 
-void ftpArgsDlg::acquireAll()
-{
-	acquireFtpContinue();
-	acquireFtpPassive();
-	acquireFtpType();
-	acquireFtpViaHttp();
-	acquireFtpRename();
-	acquireFtpUser();
-	acquireFtpPasswd();
+void ftpArgsDlg::acquireAll() {
+    acquireFtpContinue();
+    acquireFtpPassive();
+    acquireFtpType();
+    acquireFtpViaHttp();
+    acquireFtpRename();
+    acquireFtpUser();
+    acquireFtpPasswd();
 }
 
-
-void ftpArgsDlg::restoreDefaults()  //restore btn
+void ftpArgsDlg::restoreDefaults() // restore btn
 {
-	ftpContinueCkBox->setChecked(false);
-	ftpPassiveCkBox->setChecked(false);
-	ftpTypeCombo->setCurrentIndex(0);
-	ftpViaHttpCombo->setCurrentIndex(0);
-	ftpRenameCombo->setCurrentIndex(0);
-	ftpUserEdit->setText("anonymous");
-	ftpPasswdEdit->setText("ARIA2USER@");
+    ftpContinueCkBox->setChecked(false);
+    ftpPassiveCkBox->setChecked(false);
+    ftpTypeCombo->setCurrentIndex(0);
+    ftpViaHttpCombo->setCurrentIndex(0);
+    ftpRenameCombo->setCurrentIndex(0);
+    ftpUserEdit->setText("anonymous");
+    ftpPasswdEdit->setText("ARIA2USER@");
 
-	argFtpContinue="";
-	argFtpPassive="";
-	argFtpType="";
-	argFtpViaHttp="";
-	argFtpRename="";
-	argFtpUser="";
-	argFtpPasswd="";
+    argFtpContinue = "";
+    argFtpPassive = "";
+    argFtpType = "";
+    argFtpViaHttp = "";
+    argFtpRename = "";
+    argFtpUser = "";
+    argFtpPasswd = "";
 
-	ftpContinue=false;
-	ftpPassive=false;
-	ftpType=0;
-	ftpViaHttp=0;
-	ftpRename=0;
-	ftpUser="anonymous";
-	ftpPasswd="ARIA2USER@";
+    ftpContinue = false;
+    ftpPassive = false;
+    ftpType = 0;
+    ftpViaHttp = 0;
+    ftpRename = 0;
+    ftpUser = "anonymous";
+    ftpPasswd = "ARIA2USER@";
 
-	QMessageBox::warning
-		(this,"Warning - aria2fe","The FTP argument list has been cleared!");
+    QMessageBox::warning(this, "Warning - aria2fe",
+                         "The FTP argument list has been cleared!");
 }
 
-
-void ftpArgsDlg::setupConnections()  //called by constructor
+void ftpArgsDlg::setupConnections() // called by constructor
 {
-	connect(restoreBtn,SIGNAL(released()),this,SLOT(restoreDefaults()));
-	connect(okBtn,SIGNAL(released()),this,SLOT(acceptArgs()));
-	connect(cancelBtn,SIGNAL(released()),this,SLOT(rejectArgs()));
+    connect(restoreBtn, SIGNAL(released()), this, SLOT(restoreDefaults()));
+    connect(okBtn, SIGNAL(released()), this, SLOT(acceptArgs()));
+    connect(cancelBtn, SIGNAL(released()), this, SLOT(rejectArgs()));
 }
 
-
-void ftpArgsDlg::init()  //called by constructor
+void ftpArgsDlg::init() // called by constructor
 {
-	ftpContinueCkBox->setChecked(ftpContinue);
-	ftpPassiveCkBox->setChecked(ftpPassive);
-	ftpTypeCombo->setCurrentIndex(ftpType);
-	ftpViaHttpCombo->setCurrentIndex(ftpViaHttp);
-	ftpRenameCombo->setCurrentIndex(ftpRename);
-	ftpUserEdit->setText(ftpUser);
-	ftpPasswdEdit->setText(ftpPasswd);
+    ftpContinueCkBox->setChecked(ftpContinue);
+    ftpPassiveCkBox->setChecked(ftpPassive);
+    ftpTypeCombo->setCurrentIndex(ftpType);
+    ftpViaHttpCombo->setCurrentIndex(ftpViaHttp);
+    ftpRenameCombo->setCurrentIndex(ftpRename);
+    ftpUserEdit->setText(ftpUser);
+    ftpPasswdEdit->setText(ftpPasswd);
 
-	acquireAll();
+    acquireAll();
 }

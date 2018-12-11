@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,11 +18,10 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
-
 
 #ifndef FTPARGSDLG_H
 #define FTPARGSDLG_H
@@ -47,37 +46,34 @@ extern int ftpRename;
 extern QString ftpUser;
 extern QString ftpPasswd;
 
-class ftpArgsDlg : public QDialog, public Ui::ftpArgsDlg
-{
-	Q_OBJECT
+class ftpArgsDlg : public QDialog, public Ui::ftpArgsDlg {
+    Q_OBJECT
 
 public:
-
-	ftpArgsDlg();
-	~ftpArgsDlg();
+    ftpArgsDlg();
+    ~ftpArgsDlg();
 
 public slots:
 
-	void acceptArgs();
-	void rejectArgs();
-	void acquireFtpContinue();
-	void acquireFtpPassive();
-	void acquireFtpType();
-	void acquireFtpViaHttp();
-	void acquireFtpRename();
-	void acquireFtpUser();
-	void acquireFtpPasswd();
-	void acquireAll();
-	void restoreDefaults();
+    void acceptArgs();
+    void rejectArgs();
+    void acquireFtpContinue();
+    void acquireFtpPassive();
+    void acquireFtpType();
+    void acquireFtpViaHttp();
+    void acquireFtpRename();
+    void acquireFtpUser();
+    void acquireFtpPasswd();
+    void acquireAll();
+    void restoreDefaults();
 
 protected slots:
 
-	virtual void languageChange();
+    virtual void languageChange();
 
 private:
-
-	void setupConnections();
-	void init();
+    void setupConnections();
+    void init();
 };
 
 #endif // FTPARGSDLG_H

@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,28 +18,20 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include <argsdlg.h>
 
+argsDlg::argsDlg() { setupUi(this); }
 
-argsDlg::argsDlg()
-{
-	setupUi(this);
+argsDlg::~argsDlg() {
+    // no need to delete child widgets, Qt does it all for us
 }
 
-
-argsDlg::~argsDlg()
+void argsDlg::languageChange() // future use
 {
-	//no need to delete child widgets, Qt does it all for us
-}
-
-
-void argsDlg::languageChange()  //future use
-{
-	retranslateUi(this);
+    retranslateUi(this);
 }

@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // aria2fe
-// A graphical "Front End" (GUI) for aria2     
-// Copyright (C) 2007, Mike Wells 
+// A graphical "Front End" (GUI) for aria2
+// Copyright (C) 2007, Mike Wells
 //
 //
 // This program is free software; you can redistribute it and/or modify it under
@@ -18,11 +18,10 @@
 // this program.  If not, see http://www.gnu.org/licenses/.
 //
 //
-// Web: http://aria2fe.com/ 
+// Web: http://aria2fe.com/
 // Email: aria2fe@cox.net
 //
 ////////////////////////////////////////////////////////////////////////////////
-
 
 #include <torrentargsdlg.h>
 
@@ -48,217 +47,188 @@ QString torrentSeedTime;
 QString torrentSeedRatio;
 QString torrentPeer;
 
-torrentArgsDlg::torrentArgsDlg()
-{
-	setupUi(this);
-	setupConnections();
-	init();
+torrentArgsDlg::torrentArgsDlg() {
+    setupUi(this);
+    setupConnections();
+    init();
 }
 
-
-torrentArgsDlg::~torrentArgsDlg()
-{
-	//no need to delete child widgets, Qt does it all for us
+torrentArgsDlg::~torrentArgsDlg() {
+    // no need to delete child widgets, Qt does it all for us
 }
 
-
-void torrentArgsDlg::languageChange()  //future use
+void torrentArgsDlg::languageChange() // future use
 {
-	retranslateUi(this);
+    retranslateUi(this);
 }
 
-void torrentArgsDlg::acceptArgs()  //ok btn
+void torrentArgsDlg::acceptArgs() // ok btn
 {
-	acquireAll();
+    acquireAll();
 
-	torrentShowFiles=torrentShowFilesCkBox->isChecked();
-	torrentFollow=torrentFollowCombo->currentIndex();
-	torrentIntegrity=torrentIntegrityCombo->currentIndex();
-	torrentMapping=torrentMappingCombo->currentIndex();
-	torrentIndex=torrentIndexEdit->text();
-	torrentPorts=torrentPortsEdit->text();
-	torrentMaxSpeed=torrentMaxSpeedEdit->text();
-	torrentSeedTime=torrentSeedTimeEdit->text();
-	torrentSeedRatio=torrentSeedRatioEdit->text();
-	torrentPeer=torrentPeerEdit->text();
+    torrentShowFiles = torrentShowFilesCkBox->isChecked();
+    torrentFollow = torrentFollowCombo->currentIndex();
+    torrentIntegrity = torrentIntegrityCombo->currentIndex();
+    torrentMapping = torrentMappingCombo->currentIndex();
+    torrentIndex = torrentIndexEdit->text();
+    torrentPorts = torrentPortsEdit->text();
+    torrentMaxSpeed = torrentMaxSpeedEdit->text();
+    torrentSeedTime = torrentSeedTimeEdit->text();
+    torrentSeedRatio = torrentSeedRatioEdit->text();
+    torrentPeer = torrentPeerEdit->text();
 
-	close();
+    close();
 }
 
-
-void torrentArgsDlg::rejectArgs()  //cancel btn
+void torrentArgsDlg::rejectArgs() // cancel btn
 {
-	close();
+    close();
 }
 
+void torrentArgsDlg::acquireTorrentShowFiles() {
+    argTorrentShowFiles = "";
 
-void torrentArgsDlg::acquireTorrentShowFiles()
-{
-	argTorrentShowFiles="";
-
-	if (torrentShowFilesCkBox->isChecked())
-		argTorrentShowFiles="--show-files";
+    if (torrentShowFilesCkBox->isChecked())
+        argTorrentShowFiles = "--show-files";
 }
 
+void torrentArgsDlg::acquireTorrentFollow() {
+    argTorrentFollow = "";
 
-void torrentArgsDlg::acquireTorrentFollow()
-{
-	argTorrentFollow="";
-
-	if (torrentFollowCombo->currentText()=="false")
-		argTorrentFollow="--follow-torrent=false";
-	else if (torrentFollowCombo->currentText()=="mem")
-		argTorrentFollow="--follow-torrent=mem";
+    if (torrentFollowCombo->currentText() == "false")
+        argTorrentFollow = "--follow-torrent=false";
+    else if (torrentFollowCombo->currentText() == "mem")
+        argTorrentFollow = "--follow-torrent=mem";
 }
 
+void torrentArgsDlg::acquireTorrentIntegrity() {
+    argTorrentIntegrity = "";
 
-void torrentArgsDlg::acquireTorrentIntegrity()
-{
-	argTorrentIntegrity="";
-
-	if (torrentIntegrityCombo->currentText()=="true")
-		argTorrentIntegrity="--check-integrity=true";
+    if (torrentIntegrityCombo->currentText() == "true")
+        argTorrentIntegrity = "--check-integrity=true";
 }
 
+void torrentArgsDlg::acquireTorrentMapping() {
+    argTorrentMapping = "";
 
-void torrentArgsDlg::acquireTorrentMapping()
-{
-	argTorrentMapping="";
-
-	if (torrentMappingCombo->currentText()=="false")
-		argTorrentMapping="--direct-file-mapping=false";
+    if (torrentMappingCombo->currentText() == "false")
+        argTorrentMapping = "--direct-file-mapping=false";
 }
 
+void torrentArgsDlg::acquireTorrentIndex() {
+    argTorrentIndex = "";
 
-void torrentArgsDlg::acquireTorrentIndex()
-{
-	argTorrentIndex="";
-
-	if (torrentIndexEdit->text()!="")
-		argTorrentIndex="--select-file="+torrentIndexEdit->text();
+    if (torrentIndexEdit->text() != "")
+        argTorrentIndex = "--select-file=" + torrentIndexEdit->text();
 }
 
+void torrentArgsDlg::acquireTorrentPorts() {
+    argTorrentPorts = "";
 
-void torrentArgsDlg::acquireTorrentPorts()
-{
-	argTorrentPorts="";
-
-	if (torrentPortsEdit->text()!="6881-6999")
-		argTorrentPorts="--listen-port="+torrentPortsEdit->text();
+    if (torrentPortsEdit->text() != "6881-6999")
+        argTorrentPorts = "--listen-port=" + torrentPortsEdit->text();
 }
 
+void torrentArgsDlg::acquireTorrentMaxSpeed() {
+    argTorrentMaxSpeed = "";
 
-void torrentArgsDlg::acquireTorrentMaxSpeed()
-{
-	argTorrentMaxSpeed="";
-
-	if (torrentMaxSpeedEdit->text()!="0")
-		argTorrentMaxSpeed="--max-upload-limit="+torrentMaxSpeedEdit->text();
+    if (torrentMaxSpeedEdit->text() != "0")
+        argTorrentMaxSpeed =
+                "--max-upload-limit=" + torrentMaxSpeedEdit->text();
 }
 
+void torrentArgsDlg::acquireTorrentSeedTime() {
+    argTorrentSeedTime = "";
 
-void torrentArgsDlg::acquireTorrentSeedTime()
-{
-	argTorrentSeedTime="";
-
-	if (torrentSeedTimeEdit->text()!="")
-		argTorrentSeedTime="--seed-time="+torrentSeedTimeEdit->text();
+    if (torrentSeedTimeEdit->text() != "")
+        argTorrentSeedTime = "--seed-time=" + torrentSeedTimeEdit->text();
 }
 
+void torrentArgsDlg::acquireTorrentSeedRatio() {
+    argTorrentSeedRatio = "";
 
-void torrentArgsDlg::acquireTorrentSeedRatio()
-{
-	argTorrentSeedRatio="";
-
-	if (torrentSeedRatioEdit->text()!="1.0")
-		argTorrentSeedRatio="--seed-ratio="+torrentSeedRatioEdit->text();
+    if (torrentSeedRatioEdit->text() != "1.0")
+        argTorrentSeedRatio = "--seed-ratio=" + torrentSeedRatioEdit->text();
 }
 
+void torrentArgsDlg::acquireTorrentPeer() {
+    argTorrentPeer = "";
 
-void torrentArgsDlg::acquireTorrentPeer()
-{
-	argTorrentPeer="";
-
-	if (torrentPeerEdit->text()!="-aria2-")
-		argTorrentPeer="--peer-id-prefix="+torrentPeerEdit->text();
+    if (torrentPeerEdit->text() != "-aria2-")
+        argTorrentPeer = "--peer-id-prefix=" + torrentPeerEdit->text();
 }
 
-
-void torrentArgsDlg::acquireAll()
-{
-	acquireTorrentShowFiles();
-	acquireTorrentFollow();
-	acquireTorrentIntegrity();
-	acquireTorrentMapping();
-	acquireTorrentIndex();
-	acquireTorrentPorts();
-	acquireTorrentMaxSpeed();
-	acquireTorrentSeedTime();
-	acquireTorrentSeedRatio();
-	acquireTorrentPeer();
+void torrentArgsDlg::acquireAll() {
+    acquireTorrentShowFiles();
+    acquireTorrentFollow();
+    acquireTorrentIntegrity();
+    acquireTorrentMapping();
+    acquireTorrentIndex();
+    acquireTorrentPorts();
+    acquireTorrentMaxSpeed();
+    acquireTorrentSeedTime();
+    acquireTorrentSeedRatio();
+    acquireTorrentPeer();
 }
 
-
-void torrentArgsDlg::restoreDefaults()  //restore btn
+void torrentArgsDlg::restoreDefaults() // restore btn
 {
-	torrentShowFilesCkBox->setChecked(false);
-	torrentFollowCombo->setCurrentIndex(0);
-	torrentIntegrityCombo->setCurrentIndex(0);
-	torrentMappingCombo->setCurrentIndex(0);
-	torrentIndexEdit->setText("");
-	torrentPortsEdit->setText("6881-6999");
-	torrentMaxSpeedEdit->setText("0");
-	torrentSeedTimeEdit->setText("");
-	torrentSeedRatioEdit->setText("1.0");
-	torrentPeerEdit->setText("-aria2-");
+    torrentShowFilesCkBox->setChecked(false);
+    torrentFollowCombo->setCurrentIndex(0);
+    torrentIntegrityCombo->setCurrentIndex(0);
+    torrentMappingCombo->setCurrentIndex(0);
+    torrentIndexEdit->setText("");
+    torrentPortsEdit->setText("6881-6999");
+    torrentMaxSpeedEdit->setText("0");
+    torrentSeedTimeEdit->setText("");
+    torrentSeedRatioEdit->setText("1.0");
+    torrentPeerEdit->setText("-aria2-");
 
-	argTorrentShowFiles="";
-	argTorrentFollow="";
-	argTorrentIntegrity="";
-	argTorrentMapping="";
-	argTorrentIndex="";
-	argTorrentPorts="";
-	argTorrentMaxSpeed="";
-	argTorrentSeedTime="";
-	argTorrentSeedRatio="";
-	argTorrentPeer="";
+    argTorrentShowFiles = "";
+    argTorrentFollow = "";
+    argTorrentIntegrity = "";
+    argTorrentMapping = "";
+    argTorrentIndex = "";
+    argTorrentPorts = "";
+    argTorrentMaxSpeed = "";
+    argTorrentSeedTime = "";
+    argTorrentSeedRatio = "";
+    argTorrentPeer = "";
 
-	torrentShowFiles=false;
-	torrentFollow=0;
-	torrentIntegrity=0;
-	torrentMapping=0;
-	torrentIndex="";
-	torrentPorts="6881-6999";
-	torrentMaxSpeed="0";
-	torrentSeedTime="";
-	torrentSeedRatio="1.0";
-	torrentPeer="-aria2-";
+    torrentShowFiles = false;
+    torrentFollow = 0;
+    torrentIntegrity = 0;
+    torrentMapping = 0;
+    torrentIndex = "";
+    torrentPorts = "6881-6999";
+    torrentMaxSpeed = "0";
+    torrentSeedTime = "";
+    torrentSeedRatio = "1.0";
+    torrentPeer = "-aria2-";
 
-	QMessageBox::warning
-		(this,"Warning - aria2fe","The BitTorrent argument list has been cleared!");
+    QMessageBox::warning(this, "Warning - aria2fe",
+                         "The BitTorrent argument list has been cleared!");
 }
 
-
-void torrentArgsDlg::setupConnections()  //called by constructor
+void torrentArgsDlg::setupConnections() // called by constructor
 {
-	connect(restoreBtn,SIGNAL(released()),this,SLOT(restoreDefaults()));
-	connect(okBtn,SIGNAL(released()),this,SLOT(acceptArgs()));
-	connect(cancelBtn,SIGNAL(released()),this,SLOT(rejectArgs()));
+    connect(restoreBtn, SIGNAL(released()), this, SLOT(restoreDefaults()));
+    connect(okBtn, SIGNAL(released()), this, SLOT(acceptArgs()));
+    connect(cancelBtn, SIGNAL(released()), this, SLOT(rejectArgs()));
 }
 
-
-void torrentArgsDlg::init()  //called by constructor
+void torrentArgsDlg::init() // called by constructor
 {
-	torrentShowFilesCkBox->setChecked(torrentShowFiles);
-	torrentFollowCombo->setCurrentIndex(torrentFollow);
-	torrentIntegrityCombo->setCurrentIndex(torrentIntegrity);
-	torrentMappingCombo->setCurrentIndex(torrentMapping);
-	torrentIndexEdit->setText(torrentIndex);
-	torrentPortsEdit->setText(torrentPorts);
-	torrentMaxSpeedEdit->setText(torrentMaxSpeed);
-	torrentSeedTimeEdit->setText(torrentSeedTime);
-	torrentSeedRatioEdit->setText(torrentSeedRatio);
-	torrentPeerEdit->setText(torrentPeer);
+    torrentShowFilesCkBox->setChecked(torrentShowFiles);
+    torrentFollowCombo->setCurrentIndex(torrentFollow);
+    torrentIntegrityCombo->setCurrentIndex(torrentIntegrity);
+    torrentMappingCombo->setCurrentIndex(torrentMapping);
+    torrentIndexEdit->setText(torrentIndex);
+    torrentPortsEdit->setText(torrentPorts);
+    torrentMaxSpeedEdit->setText(torrentMaxSpeed);
+    torrentSeedTimeEdit->setText(torrentSeedTime);
+    torrentSeedRatioEdit->setText(torrentSeedRatio);
+    torrentPeerEdit->setText(torrentPeer);
 
-	acquireAll();
+    acquireAll();
 }
